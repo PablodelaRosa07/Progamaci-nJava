@@ -7,7 +7,7 @@ public class LucesNavidad {
     int contadorSi = 0;
     int contadorNo = 0;
     }
-    int lucesEncienden(int ContadorSi, int ContadorNo){
+    public int lucesEncienden(int ContadorSi, int ContadorNo){
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < 10; i++) {
             System.out.println("¿Está la luz bien?:");
@@ -18,14 +18,15 @@ public class LucesNavidad {
             }
 
             if (respuesta.equals("si")){
-                int ContadorSi = ContadorSi+1;
+                ContadorSi = ContadorSi+1;
             }
             if (respuesta.equals("no")){
-                int ContadorNo = ContadorNo+1;
+                ContadorNo = ContadorNo+1;
             }
         }
         return ContadorSi;
-        return ContadorNo;
 
     }
+
+
 }
