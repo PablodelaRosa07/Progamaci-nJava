@@ -6,7 +6,7 @@ public class Ejercicio5 {
         int[] numeros2 = {10, 20, 30, 40, 50};
 
         Ejercicio5 referencia = new Ejercicio5();
-        int comparar = referencia.compararTablas(numeros1, numeros2);
+        /*int comparar = Integer.parseInt(referencia.compararTablas(numeros1, numeros2));
     }
 
     public String compararTablas(int numeros1, int numeros2){
@@ -23,6 +23,11 @@ public class Ejercicio5 {
         }
 
         System.out.println(iguales);
-        return "";
+        return "";*/
+
+
+
+
+
     }
 }
