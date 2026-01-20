@@ -7,6 +7,8 @@ public class Racing {
         String[] nombresPilotos = new String[100];
         double[] tiemposPilotos = new double[100];
         int contador = 0;
+        int veces = 0;
+        int sumaMedia = 0;
         Racing referencia = new Racing();
 
         boolean noSalir = true;
@@ -17,19 +19,27 @@ public class Racing {
             int sc = input.nextInt();
 
             if (sc == 1) {
-                referencia.inicializarEscuderia(nombresPilotos, tiemposPilotos, contador);
+                referencia.inicializarEscuderia(nombresPilotos, tiemposPilotos, contador, veces);
             }
 
             if (sc == 2){
-                referencia.formatearPilotos(nombresPilotos, contador);
+                referencia.formatearPilotos(nombresPilotos);
             }
 
             if (sc == 3){
-
+                referencia.obtenerEstadisticas(nombresPilotos, tiemposPilotos);
             }
 
             if (sc == 4){
                 referencia.buscarPiloto(nombresPilotos, tiemposPilotos);
+            }
+
+            if (sc == 5){
+                referencia.generarIDS(nombresPilotos);
+            }
+
+            if (sc == 6){
+                noSalir = false;
             }
         }
     }
@@ -43,11 +53,10 @@ public class Racing {
                     "6. Salir.\n");
         }
 
-    int inicializarEscuderia(String[] nombresPilotos, double[] tiemposPilotos, int contador){
+    int inicializarEscuderia(String[] nombresPilotos, double[] tiemposPilotos, int contador, int veces){
         Scanner input = new Scanner(System.in);
         System.out.println("¿Cuántos pilotos quieres añadir?: ");
-        int veces = input.nextInt();
-
+        veces = input.nextInt();
         for (int i = 0; i < veces; i++) {
             Scanner input2 = new Scanner(System.in);
             System.out.println("Introduce nombre del piloto: ");
@@ -64,39 +73,90 @@ public class Racing {
             tiemposPilotos[contador] = tiempoPiloto;
             contador = contador+1;
         }
-        return contador;
+        return veces;
     }
 
-    void formatearPilotos(String[] nombresPilotos, int contador){
-        for (int i = 0; i < contador; i++) {
-            nombresPilotos[i] = nombresPilotos[i].toUpperCase();
-            if (nombresPilotos[i].length() > 10){
-                nombresPilotos[i] = nombresPilotos[i].substring(0, 9)+".";
+    void formatearPilotos(String[] nombresPilotos){
+        for (int i = 0; i < nombresPilotos.length; i++) {
+            if (nombresPilotos[i] != null){
+                nombresPilotos[i] = nombresPilotos[i].toUpperCase();
+                if (nombresPilotos[i].length() > 10){
+                    nombresPilotos[i] = nombresPilotos[i].substring(0, 9)+".";
+                }
+                System.out.println(nombresPilotos[i]);
             }
-            System.out.println(nombresPilotos[i]);
+
         }
     }
 
-    double buscarPiloto(String[] nombresPilotos, double[] tiemposPilotos){
+    void obtenerEstadisticas(String[] nombresPilotos, double[] tiemposPilotos) {
+
+        double suma = 0;
+        int contador = 0;
+
+        double mejorTiempo = 0;
+        String mejorPiloto = "";
+
+        for (int i = 0; i < nombresPilotos.length; i++) {
+            if (nombresPilotos[i] != null) {
+                double tiempo = tiemposPilotos[i];
+
+                if (mejorPiloto.equals("")) {
+                    mejorTiempo = tiempo;
+                    mejorPiloto = nombresPilotos[i];
+                }
+                suma += tiempo;
+                contador++;
+                if (tiempo < mejorTiempo) {
+                    mejorTiempo = tiempo;
+                    mejorPiloto = nombresPilotos[i];
+                }
+            }
+        }
+        if (contador == 0) {
+            System.out.println("No hay pilotos registrados.");
+            return;
+        }
+        double media = suma / contador;
+
+        System.out.println("Tiempo medio: " + media);
+        System.out.println("Mejor tiempo: " + mejorTiempo);
+        System.out.println("Piloto más rápido: " + mejorPiloto);
+    }
+
+    double buscarPiloto(String[] nombresPilotos, double[] tiemposPilotos) {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce nombre de piloto:");
-        String nombre = sc.nextLine();
-        int contador = 0;
-        boolean sigue = true;
-        while (sigue){
-            if (nombresPilotos[contador].equals(nombre)){
-                System.out.println(tiemposPilotos[contador]);
-                sigue = false;
+        String nombreBuscado = sc.nextLine().toUpperCase();
+
+        for (int i = 0; i < nombresPilotos.length; i++) {
+            if (nombresPilotos[i] != null) {
+                if (nombresPilotos[i].equalsIgnoreCase(nombreBuscado)) {
+                    System.out.println("Tiempo del piloto: " + tiemposPilotos[i]);
+                    return tiemposPilotos[i];
+                }
             }
-            if (contador == nombresPilotos.length){
-                sigue = false;
-            }
-            contador +=1;
         }
-        return tiemposPilotos[contador];
+
+        System.out.println("Piloto no encontrado.");
+        return -1;
     }
 
-
-
-
+    void generarIDS(String[] nombresPilotos) {
+        for (int i = 0; i < nombresPilotos.length; i++) {
+            if (nombresPilotos[i] != null) {
+                String nombre = nombresPilotos[i];
+                String codigo;
+                if (nombre.length() >= 3) {
+                    codigo = nombre.substring(0, 3).toUpperCase();
+                }
+                else {
+                    codigo = nombre.toUpperCase();
+                }
+                codigo = codigo + "-" + i;
+                System.out.println(codigo);
+            }
+        }
+    }
 }
