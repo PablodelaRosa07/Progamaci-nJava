@@ -10,6 +10,7 @@ public class Racing {
         int veces = 0;
         int sumaMedia = 0;
         Racing referencia = new Racing();
+        int numPiloto = 0;
 
         boolean noSalir = true;
         while (noSalir == true){
@@ -19,7 +20,7 @@ public class Racing {
             int sc = input.nextInt();
 
             if (sc == 1) {
-                referencia.inicializarEscuderia(nombresPilotos, tiemposPilotos, contador, veces);
+                numPiloto = referencia.inicializarEscuderia(nombresPilotos, tiemposPilotos, contador, veces);
             }
 
             if (sc == 2){
@@ -31,7 +32,7 @@ public class Racing {
             }
 
             if (sc == 4){
-                referencia.buscarPiloto(nombresPilotos, tiemposPilotos);
+                referencia.buscarPiloto(nombresPilotos, tiemposPilotos, numPiloto);
             }
 
             if (sc == 5){
@@ -73,7 +74,7 @@ public class Racing {
             tiemposPilotos[contador] = tiempoPiloto;
             contador = contador+1;
         }
-        return veces;
+        return contador;
     }
 
     void formatearPilotos(String[] nombresPilotos){
@@ -124,23 +125,27 @@ public class Racing {
         System.out.println("Piloto más rápido: " + mejorPiloto);
     }
 
-    double buscarPiloto(String[] nombresPilotos, double[] tiemposPilotos) {
+    double buscarPiloto(String[] nombresPilotos, double[] tiemposPilotos, int contador) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce nombre de piloto:");
         String nombreBuscado = sc.nextLine().toUpperCase();
+        boolean encontrado = false;
+        int i = 0;
+        double resultado = -1;
+        while (!encontrado && i < contador) {
 
-        for (int i = 0; i < nombresPilotos.length; i++) {
-            if (nombresPilotos[i] != null) {
                 if (nombresPilotos[i].equalsIgnoreCase(nombreBuscado)) {
                     System.out.println("Tiempo del piloto: " + tiemposPilotos[i]);
-                    return tiemposPilotos[i];
-                }
+                    resultado = tiemposPilotos[i];
+                    encontrado = true;
             }
+                else {
+                    i = i+1;
+                }
         }
 
-        System.out.println("Piloto no encontrado.");
-        return -1;
+        return resultado;
     }
 
     void generarIDS(String[] nombresPilotos) {
