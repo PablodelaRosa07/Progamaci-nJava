@@ -1,6 +1,6 @@
 package Objetos;
 
-public class GestionaPokemon {
+public class GestionaPokemon {/*
     static void main(String[] args) {
 
         Pokemon Pikachu = new Persona();
@@ -9,5 +9,5 @@ public class GestionaPokemon {
         Pikachu.vida = "Cuenca";
         Pikachu.evoluciones = "Avatar";
 
-    }
+    }*/
 }
