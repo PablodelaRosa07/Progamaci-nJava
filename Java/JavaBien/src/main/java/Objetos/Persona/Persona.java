@@ -1,4 +1,4 @@
-package Objetos;
+package Objetos.Persona;
 
 public class Persona {
 
@@ -10,7 +10,7 @@ public class Persona {
     String peliFav;
 
     public Persona(int edad, String nombre, String lugarNacimiento, String deporteFavorito, String peliFav) {
-        this.edad = edad;
+        this.edad = edad; // con this te estás refiriendo a los atributos de dentro de las clases
         this.nombre = nombre;
         this.lugarNacimiento = lugarNacimiento;
         this.deporteFavorito = deporteFavorito;

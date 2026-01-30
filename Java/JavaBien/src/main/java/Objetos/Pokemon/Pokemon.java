@@ -1,4 +1,4 @@
-package Objetos;
+package Objetos.Pokemon;
 
 public class Pokemon {
     //Constructores

@@ -1,6 +1,6 @@
-package Objetos;
+/*package Objetos;/*
 
-public class GestionaPersona {/*
+public class GestionaPersona {
     static void main(String[] args) {
 
         Persona paula = new Persona();
@@ -20,5 +20,5 @@ public class GestionaPersona {/*
         antonio.deporteFavorito = "Fútbol";
         System.out.println(antonio.toString());
         antonio.hablar();
-    }*/
-}
+
+}*/

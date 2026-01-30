@@ -1,4 +1,4 @@
-package Objetos;
+package Objetos.Pokemon;
 
 public class GestionaPokemon {/*
     static void main(String[] args) {
