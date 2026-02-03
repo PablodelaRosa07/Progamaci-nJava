@@ -1,23 +1,20 @@
-package Objetos.Notas;
+package Objetos.EjercicioNotas;
 
-public class Notas {
-
+public class NotaAsignatura {
     String nombreAsignatura;
-    int notaPrimerTrimestre;
-    int notaSegundoTrimestre;
-    int notaTercerTrimestre;
-    int notaMedia;
+    double notaPrimerTrimestre;
+    double notaSegundoTrimestre;
+    double notaTercerTrimestre;
 
-    public Notas(String nombreAsignatura, int notaPrimerTrimestre, int notaSegundoTrimestre, int notaTercerTrimestre, int notaMedia) {
+    public NotaAsignatura(String nombreAsignatura, double notaPrimerTrimestre, double notaSegundoTrimestre, double notaTercerTrimestre) {
         this.nombreAsignatura = nombreAsignatura;
         this.notaPrimerTrimestre = notaPrimerTrimestre;
         this.notaSegundoTrimestre = notaSegundoTrimestre;
         this.notaTercerTrimestre = notaTercerTrimestre;
-        this.notaMedia = notaMedia;
     }
-    int contador = 0;
-    public void trimestresAprobados(){
-        contador = 0;
+
+    public void calculaTrimestresAprobados(){
+        int contador = 0;
         if (notaPrimerTrimestre >= 5){
             contador = contador+1;
         }
@@ -30,8 +27,11 @@ public class Notas {
         System.out.println("Ha aprobado " +contador+ " trimestres.");
     }
 
-    public void notaMediaFinal(){
-        notaMedia = (notaPrimerTrimestre+notaSegundoTrimestre+notaTercerTrimestre)/3;
-        System.out.println("La nota media es " +notaMedia);
+    public double calculaNotaMediaFinal(){
+        return (notaPrimerTrimestre+notaSegundoTrimestre+notaTercerTrimestre)/3;
+
     }
+
+
+
 }
