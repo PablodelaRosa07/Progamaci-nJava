@@ -1,6 +1,6 @@
 package Objetos.EjercicioNotas;
 
-public class Alumno {
+public class Alumno{
 
     String nombre;
     String apellidos;
@@ -26,9 +26,5 @@ public class Alumno {
                 '}';
     }
 
-    public void imprimeSiAprobado(String nombreAsignatura) {
-
-        this.notaProg.nombre
-    }
 
 }
