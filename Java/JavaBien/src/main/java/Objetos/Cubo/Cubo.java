@@ -2,8 +2,8 @@ package Objetos.Cubo;
 
 public class Cubo {
 
-    private double lado;      // en decímetros
-    private double litros;    // litros dentro del cubo
+    double lado;      // en decímetros
+    double litros;    // litros dentro del cubo
 
     public Cubo(double lado) {
         this.lado = lado;

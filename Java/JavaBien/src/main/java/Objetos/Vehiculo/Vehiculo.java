@@ -4,15 +4,15 @@ public class Vehiculo {
 
     String marca;
     String modelo;
-    int anio;
+    int año;
     String tipoCombustible;
     double capacidadTanque;double combustibleActual;double consumoMedio; // litros cada 100 km
 
-    public Vehiculo(String marca, String modelo, int anio, String tipoCombustible, double capacidadTanque, double combustibleActual, double consumoMedio) {
+    public Vehiculo(String marca, String modelo, int año, String tipoCombustible, double capacidadTanque, double combustibleActual, double consumoMedio) {
 
         this.marca = marca;
         this.modelo = modelo;
-        this.anio = anio;
+        this.año = año;
         this.tipoCombustible = tipoCombustible;
         this.capacidadTanque = capacidadTanque;
         this.combustibleActual = combustibleActual;
