@@ -29,7 +29,8 @@ public class Vehiculo {
         return false;
     }
 
-    public void getLicencias(){
+    public String getLicencias(){
+        return null;
     }
 
 

@@ -1,29 +1,28 @@
 package Objetos.Vehiculo;
 
 public class Vehiculo {
+    private String matricula;
+    private String distintivoAmbiental; // ECO, B, C, etc.
 
-    String marca;
-    String modelo;
-    int año;
-    String tipoCombustible;
-    double capacidadTanque;double combustibleActual;double consumoMedio; // litros cada 100 km
-
-    public Vehiculo(String marca, String modelo, int año, String tipoCombustible, double capacidadTanque, double combustibleActual, double consumoMedio) {
-
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.tipoCombustible = tipoCombustible;
-        this.capacidadTanque = capacidadTanque;
-        this.combustibleActual = combustibleActual;
-        this.consumoMedio = consumoMedio;
+    public Vehiculo(String matricula, String distintivoAmbiental) {
+        this.matricula = matricula;
+        this.distintivoAmbiental = distintivoAmbiental;
     }
 
-    public double calcularConsumo(double km) {
-        return (km / 100.0) * consumoMedio;
+    public boolean tieneLimitacionParaCircular(String ciudad) {
+        String d = distintivoAmbiental.toUpperCase();
+        String c = ciudad.toLowerCase();
+
+        if ((c.equals("madrid") || c.equals("barcelona")) && (d.equals("B") || d.equals("C"))) {
+            return true;
+        }
+        if ((c.equals("valencia") || c.equals("sevilla")) && d.equals("C")) {
+            return true;
+        }
+        return false;
     }
 
-    public boolean necesitaRepostar() {
-        return combustibleActual < (capacidadTanque * 0.20);
+    public String getLicencias() {
+        return "Licencia genérica";
     }
 }

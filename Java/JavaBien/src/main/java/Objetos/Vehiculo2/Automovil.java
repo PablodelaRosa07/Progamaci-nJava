@@ -6,7 +6,7 @@ public class Automovil extends Vehiculo {
     }
 
     @Override
-    public void getLicencias() {
+    public String getLicencias() {
         return "Permiso B";
     }
 }
