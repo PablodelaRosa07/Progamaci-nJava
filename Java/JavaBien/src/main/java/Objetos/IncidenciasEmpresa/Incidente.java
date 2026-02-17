@@ -86,5 +86,45 @@ public class Incidente {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " - " + estado + ": " + criticidad + " - " +
+                fechaRegistro + " - " + equipoIncidencia.getNombre();
+    }
+
+    private int convertirADias(String fecha) {
+        String[] partes = fecha.split("-");
+        int dia = Integer.parseInt(partes[0]);
+        int mes = Integer.parseInt(partes[1]);
+        int anio = Integer.parseInt(partes[2]);
+
+        return anio * 365 + mes * 30 + dia;
+    }
+
+    protected boolean esUrgente() {
+        if (criticidad.equalsIgnoreCase("CRITICA")) {
+            return true;
+        }
+
+        if (fechaCierre == null || fechaCierre.isEmpty()) {
+            return false;
+        }
+
+        int diasRegistro = convertirADias(fechaRegistro);
+        int diasCierre = convertirADias(fechaCierre);
+
+        int diasPasados = diasCierre - diasRegistro;
+
+        switch (criticidad.toUpperCase()) {
+            case "GRAVE":
+                return diasPasados >= 7;
+
+            case "MEDIA":
+                return diasPasados >= 30;
+
+            default: // LEVE
+                return false;
+        }
+    }
 
 }
