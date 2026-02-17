@@ -10,5 +10,6 @@ public class Main {
 
         muestraInfo.muestraInformacion(tierra);
         muestraInfo.muestraInformacion(luna);
+
     }
 }
