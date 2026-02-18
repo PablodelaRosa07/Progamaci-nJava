@@ -17,7 +17,6 @@ public class GestionaIncidenciasEquipo {
         Equipo equipo3 = new Equipo("EF1234", "PcPepe", 1, "Linux", u3);
         Equipo equipo4 = new Equipo("GH1234", "PcJose", 2, "Windows 10", u4);
 
-        // 4 incidencias → 1 equipo sin incidencias, otro con 2, otros dos con 1
         Incidente i1 = new Incidente("GRAVE", "Falla RAM", equipo4, "REGISTRADA","", "1-1-2025", 1, "FalloRAM");
         Incidente i2 = new Incidente("LEVE", "Falla HDMI", equipo2, "ANALIZADA","", "2-2-2025", 2, "FalloHDMI");
         Incidente i3 = new Incidente("MEDIA", "Falla VGA", equipo3, "EN RESOLUCIÓN","", "3-3-2025", 3, "FalloVGA");
@@ -40,14 +39,14 @@ public class GestionaIncidenciasEquipo {
     }
 
     public static void imprimirTodas() {
-        System.out.println("\n--- TODAS LAS INCIDENCIAS ---");
+        System.out.println("--- TODAS LAS INCIDENCIAS ---");
         for (int i = 0; i < contador; i++) {
             System.out.println(incidencias[i]);
         }
     }
 
     public static void imprimirUrgentes() {
-        System.out.println("\n--- INCIDENCIAS URGENTES ---");
+        System.out.println("--- INCIDENCIAS URGENTES ---");
         for (int i = 0; i < contador; i++) {
             if (incidencias[i].esUrgente()) {
                 System.out.println(incidencias[i]);

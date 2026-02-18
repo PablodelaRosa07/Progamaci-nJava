@@ -26,7 +26,6 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return nombre + " - " + direccionMac + " : " + numIncidentes +
-                " - Usuario: " + (usuario != null ? usuario.getNombre() : "Sin usuario");
+        return nombre + " - " + direccionMac + " : " + numIncidentes + " - Usuario: " + (usuario != null ? usuario.getNombre() : "Sin usuario");
     }
 }
