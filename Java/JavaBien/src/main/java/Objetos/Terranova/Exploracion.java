@@ -1,31 +1,25 @@
 package Objetos.Terranova;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.DayOfWeek;
 
-public class Exploracion extends Mision{
-
+public class Exploracion extends Mision {
     private String destino;
-    private int tamanyoTripulacion;
+    private int tripulacion;
 
-    public Exploracion(int codigoNumerico, String estado, Date fechaLanzamiento, Nave naveAsignada, String nombreClase, String destino, int tamanyoTripulacion) {
-        super(codigoNumerico, estado, fechaLanzamiento, naveAsignada, nombreClase);
+    public Exploracion(int cod, String nom, LocalDate fec, Nave nav, String destino, int tri) {
+        super(cod, nom, fec, nav);
         this.destino = destino;
-        this.tamanyoTripulacion = tamanyoTripulacion;
+        this.tripulacion = tri;
     }
 
-    public String getDestino() {
-        return destino;
+    @Override
+    public boolean esMisionDeRiesgo() {
+        long diasParaLanzamiento = ChronoUnit.DAYS.between(LocalDate.now(), getFechaLanzamiento());
+        return destino.equalsIgnoreCase("Marte") || (diasParaLanzamiento <= 7);
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    public int getTamanyoTripulacion() {
-        return tamanyoTripulacion;
-    }
-
-    public void setTamanyoTripulacion(int tamanyoTripulacion) {
-        this.tamanyoTripulacion = tamanyoTripulacion;
-    }
+    @Override
+    public String toString() { return "[Exploración] " + super.toString(); }
 }

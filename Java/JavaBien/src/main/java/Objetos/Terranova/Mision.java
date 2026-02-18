@@ -1,21 +1,30 @@
 package Objetos.Terranova;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Mision {
-
     private int codigoNumerico;
-    private String nombreClase;
-    private Date fechaLanzamiento;
+    private String nombreClave;
+    private LocalDate fechaLanzamiento;
     private Nave naveAsignada;
     private String estado;
 
-    public Mision(int codigoNumerico, String estado, Date fechaLanzamiento, Nave naveAsignada, String nombreClase) {
+    public Mision(int codigoNumerico, String nombreClave, LocalDate fechaLanzamiento, Nave naveAsignada) {
+        if (fechaLanzamiento.isBefore(LocalDate.now())) {
+            System.out.println("La fecha no puede ser pasada.");
+        }
         this.codigoNumerico = codigoNumerico;
-        this.estado = estado;
-        this.naveAsignada = naveAsignada;
-        this.nombreClase = nombreClase;
+        this.nombreClave = nombreClave;
         this.fechaLanzamiento = fechaLanzamiento;
+        this.naveAsignada = naveAsignada;
+        this.estado = "PLANIFICADA";
+    }
+
+    public abstract boolean esMisionDeRiesgo();
+
+    @Override
+    public String toString() {
+        return String.format("%d: %s - %s (%s) -> %s", codigoNumerico, nombreClave, fechaLanzamiento, estado, naveAsignada);
     }
 
     public int getCodigoNumerico() {
@@ -34,11 +43,7 @@ public abstract class Mision {
         this.estado = estado;
     }
 
-    public Date getFechaLanzamiento() {
-        return fechaLanzamiento;
-    }
-
-    public void setFechaLanzamiento(Date fechaLanzamiento) {
+    public void setFechaLanzamiento(LocalDate fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
@@ -50,22 +55,13 @@ public abstract class Mision {
         this.naveAsignada = naveAsignada;
     }
 
-    public String getNombreClase() {
-        return nombreClase;
+    public String getNombreClave() {
+        return nombreClave;
     }
 
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
+    public void setNombreClave(String nombreClave) {
+        this.nombreClave = nombreClave;
     }
 
-    @Override
-    public String toString() {
-        return "Mision{" +
-                "codigoNumerico=" + codigoNumerico +
-                ", nombreClase='" + nombreClase + '\'' +
-                ", fechaLanzamiento=" + fechaLanzamiento +
-                ", naveAsignada=" + naveAsignada +
-                ", estado='" + estado + '\'' +
-                '}';
-    }
+    public LocalDate getFechaLanzamiento() { return fechaLanzamiento; }
 }

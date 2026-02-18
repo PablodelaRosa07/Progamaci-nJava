@@ -18,8 +18,8 @@ public class Incidente {
         this.descripcion = descripcion;
         this.equipoIncidencia = equipoIncidencia;
         this.estado = estado;
-        this.fechaCierre = fechaCierre;
-        this.fechaRegistro = fechaRegistro;
+       /* this.fechaCierre = fechaCierre;
+        this.fechaRegistro = fechaRegistro;*/
         this.identificadorNum = identificadorNum;
         this.nombre = nombre;
     }

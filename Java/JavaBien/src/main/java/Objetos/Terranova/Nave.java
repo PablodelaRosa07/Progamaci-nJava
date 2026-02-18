@@ -3,22 +3,36 @@ package Objetos.Terranova;
 import java.util.Objects;
 
 public class Nave {
-
-    private int codigoRegistro;
+    private String codigoRegistro;
     private String modelo;
     private int horasVuelo;
+    private Comandante responsable;
 
-    public Nave(int codigoRegistro, int horasVuelo, String modelo) {
+    public Nave(String codigoRegistro, String modelo, int horasVuelo, Comandante responsable) {
         this.codigoRegistro = codigoRegistro;
-        this.horasVuelo = horasVuelo;
         this.modelo = modelo;
+        this.horasVuelo = horasVuelo;
+        this.responsable = responsable;
     }
 
-    public int getCodigoRegistro() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Nave nave = (Nave) o;
+        return Objects.equals(codigoRegistro, nave.codigoRegistro);
+    }
+
+    @Override
+    public String toString() {
+        return "Nave " + codigoRegistro + " [Cmdte: " + responsable + "]";
+    }
+
+    public String getCodigoRegistro() {
         return codigoRegistro;
     }
 
-    public void setCodigoRegistro(int codigoRegistro) {
+    public void setCodigoRegistro(String codigoRegistro) {
         this.codigoRegistro = codigoRegistro;
     }
 
@@ -38,24 +52,11 @@ public class Nave {
         this.modelo = modelo;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Nave nave = (Nave) o;
-        return horasVuelo == nave.horasVuelo && Objects.equals(codigoRegistro, nave.codigoRegistro) && Objects.equals(modelo, nave.modelo);
+    public Comandante getResponsable() {
+        return responsable;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(codigoRegistro, modelo, horasVuelo);
-    }
-
-    @Override
-    public String toString() {
-        return "Nave{" +
-                "codigoRegistro='" + codigoRegistro + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", horasVuelo=" + horasVuelo +
-                '}';
+    public void setResponsable(Comandante responsable) {
+        this.responsable = responsable;
     }
 }
