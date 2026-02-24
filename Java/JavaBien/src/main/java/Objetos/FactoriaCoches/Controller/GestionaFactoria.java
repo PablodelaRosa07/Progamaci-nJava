@@ -12,16 +12,16 @@ public class GestionaFactoria {
         inventarioRobots[2] = new RobotEnsamblador("Robot3", 80, Estado.APAGADO, "Ensamblador");
 
         System.out.println("=== LISTADO DE INVENTARIO ===");
-        for (Robot r : inventarioRobots) {
-            if (r != null) {
+        for (Robot robot : inventarioRobots) {
+            if (robot != null) {
 
-                System.out.println(r.toString());
-                System.out.println("Tarea: " + r.ejecutarTarea());
+                System.out.println(robot.toString());
+                System.out.println("Tarea: " + robot.ejecutarTarea());
                 System.out.print("Intento de recarga: ");
-                r.recargar();
+                robot.recargar();
 
-                if (r instanceof DispositivoWIFI) {
-                    ((DispositivoWIFI) r).conectarWIFI();
+                if (robot instanceof DispositivoWIFI) {
+                    ((DispositivoWIFI) robot).conectarWIFI();
                 }
                 System.out.println("---------------------------------------");
             }

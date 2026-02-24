@@ -11,7 +11,7 @@ public class RobotSoldador extends Robot implements DispositivoWIFI {
     }
 
     @Override
-    public String ejecutarTarea() { return "Realizando soldaduras precisas en la carrocería."; }
+    public String ejecutarTarea() { return "Realizando soldaduras."; }
 
     @Override
     public boolean recargar() {
@@ -24,7 +24,7 @@ public class RobotSoldador extends Robot implements DispositivoWIFI {
     }
 
     @Override
-    public void conectarWIFI() { System.out.println("Soldador conectado a la red industrial."); }
+    public void conectarWIFI() { System.out.println("Soldador conectado."); }
     @Override
     public void desconectarWIFI() { System.out.println("Soldador fuera de línea."); }
 }

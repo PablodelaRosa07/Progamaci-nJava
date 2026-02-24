@@ -6,7 +6,7 @@ public class RobotPintor extends Robot implements DispositivoWIFI {
     }
 
     @Override
-    public String ejecutarTarea() { return "Aplica pintura a los vehículos de manera uniforme."; }
+    public String ejecutarTarea() { return "Aplicando pintura."; }
 
     @Override
     public boolean recargar() {
@@ -15,7 +15,7 @@ public class RobotPintor extends Robot implements DispositivoWIFI {
     }
 
     @Override
-    public void conectarWIFI() { System.out.println("Pintor conectado para reporte de color."); }
+    public void conectarWIFI() { System.out.println("Pintor conectado."); }
     @Override
     public void desconectarWIFI() { System.out.println("Pintor desconectado."); }
 }

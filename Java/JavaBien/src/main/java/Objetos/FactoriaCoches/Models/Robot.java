@@ -1,11 +1,11 @@
 package Objetos.FactoriaCoches.Models;
 
 public abstract class Robot {
-    private static int contadorId = 1;
+    private int contadorId = 1;
     private int id;
     private String modelo;
-    protected int bateria;
-    protected Estado estado;
+    private int bateria;
+    private Estado estado;
     private String combustible;
     private String descripcion;
 
@@ -38,5 +38,7 @@ public abstract class Robot {
     public abstract String ejecutarTarea();
     public abstract boolean recargar();
 
-    public Estado getEstado() { return estado; }
+    public Estado getEstado() {
+        return estado;
+    }
 }
