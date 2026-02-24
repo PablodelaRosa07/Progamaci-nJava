@@ -1,7 +1,5 @@
 package Objetos.FactoriaCoches.Models;
 
-import Objetos.FactoriaCoches.Models.Estado;
-
 public abstract class Robot {
     private static int contadorId = 1;
     private int id;
@@ -34,20 +32,11 @@ public abstract class Robot {
 
     @Override
     public String toString() {
-        return "Robot{" +
-                "bateria=" + bateria +
-                ", id=" + id +
-                ", modelo='" + modelo + '\'' +
-                ", estado=" + estado +
-                ", combustible='" + combustible + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+        return "ID: " + id + ", Nombre: " + modelo + ", Estado: " + estado + ", Batería: " + bateria + "%";
     }
 
     public abstract String ejecutarTarea();
     public abstract boolean recargar();
 
-    public Estado getEstado() {
-        return estado;
-    }
+    public Estado getEstado() { return estado; }
 }

@@ -1,26 +1,20 @@
 package Objetos.FactoriaCoches.Models;
 
-public class RobotEnsamblador extends Robot{
-    private double temperatura;
-    private String especificacionSeguridad;
-
-    public RobotEnsamblador(String modelo, int bateria, Estado estado, String combustible, String descripcion, String especificacionSeguridad, double temperatura) {
-        super(modelo, bateria, estado, combustible, descripcion);
-        this.especificacionSeguridad = especificacionSeguridad;
-        this.temperatura = temperatura;
+public class RobotEnsamblador extends Robot {
+    public RobotEnsamblador(String modelo, int bateria, Estado estado, String desc) {
+        super(modelo, bateria, estado, "Gasolina", desc);
     }
 
-    public String ejecutarTarea() { return "Ensamblando."; }
+    @Override
+    public String ejecutarTarea() { return "Ensamblando piezas del chasis."; }
 
+    @Override
     public boolean recargar() {
         if (this.getEstado() == Estado.APAGADO) {
-            System.out.println("Recargando");
+            System.out.println("Recargando por gasolina");
             return true;
         }
-        System.out.println("Estoy encendido");
+        System.out.println("Estoy encendido y no puedo recargar");
         return false;
     }
-
-    public void conectarWIFI() { System.out.println("Ensamblador conectado a la red."); }
-    public void desconectarWIFI() { System.out.println("Ensamblador fuera de línea."); }
 }

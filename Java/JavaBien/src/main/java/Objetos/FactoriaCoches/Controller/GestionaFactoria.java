@@ -4,21 +4,26 @@ import Objetos.FactoriaCoches.Models.*;
 
 public class GestionaFactoria {
     public static void main(String[] args) {
+
         Robot[] inventarioRobots = new Robot[20];
 
-        inventarioRobots[0] = new RobotSoldador("1", 50, Estado.ENCENDIDO, "Soldador Pro", 1500, "Nivel 5");
-        inventarioRobots[1] = new RobotPintor("2", 5, Estado.ALERTA, "Pintor Premium", "Mucho", "Algo", 1500);
-        inventarioRobots[2] = new RobotEnsamblador("3", 80, Estado.APAGADO, "Ensamblador Nini", "Poco", "No", 1650);
+        inventarioRobots[0] = new RobotSoldador("Robot1", 50, Estado.ENCENDIDO, "Soldador", 1250.0, "3");
+        inventarioRobots[1] = new RobotPintor("Robot2", 5, Estado.ALERTA, "Pintor");
+        inventarioRobots[2] = new RobotEnsamblador("Robot3", 80, Estado.APAGADO, "Ensamblador");
 
-        System.out.println("--- INVENTARIO DE LA FACTORÍA ---");
+        System.out.println("=== LISTADO DE INVENTARIO ===");
         for (Robot r : inventarioRobots) {
             if (r != null) {
+
                 System.out.println(r.toString());
                 System.out.println("Tarea: " + r.ejecutarTarea());
                 System.out.print("Intento de recarga: ");
                 r.recargar();
-                System.out.println("¿Batería suficiente (>10)? " + (r.tieneBateriaSuficiente() ? "Sí" : "No"));
-                System.out.println("--------------------------------");
+
+                if (r instanceof DispositivoWIFI) {
+                    ((DispositivoWIFI) r).conectarWIFI();
+                }
+                System.out.println("---------------------------------------");
             }
         }
     }

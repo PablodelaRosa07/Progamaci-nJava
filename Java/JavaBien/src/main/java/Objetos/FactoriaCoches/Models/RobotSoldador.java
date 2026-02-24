@@ -10,17 +10,21 @@ public class RobotSoldador extends Robot implements DispositivoWIFI {
         this.especificacionSeguridad = seg;
     }
 
-    public String ejecutarTarea() { return "Realizando soldaduras precisas."; }
+    @Override
+    public String ejecutarTarea() { return "Realizando soldaduras precisas en la carrocería."; }
 
+    @Override
     public boolean recargar() {
         if (this.getEstado() == Estado.APAGADO) {
-            System.out.println("Recargando");
+            System.out.println("Recargando por electricidad");
             return true;
         }
-        System.out.println("Estoy encendido");
+        System.out.println("Estoy encendido y no puedo recargar");
         return false;
     }
 
-    public void conectarWIFI() { System.out.println("Soldador conectado a la red."); }
+    @Override
+    public void conectarWIFI() { System.out.println("Soldador conectado a la red industrial."); }
+    @Override
     public void desconectarWIFI() { System.out.println("Soldador fuera de línea."); }
 }

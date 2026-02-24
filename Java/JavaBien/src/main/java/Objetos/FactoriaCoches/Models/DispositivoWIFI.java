@@ -1,6 +1,6 @@
 package Objetos.FactoriaCoches.Models;
 
-interface DispositivoWIFI {
+public interface DispositivoWIFI {
     void conectarWIFI();
     void desconectarWIFI();
 }
