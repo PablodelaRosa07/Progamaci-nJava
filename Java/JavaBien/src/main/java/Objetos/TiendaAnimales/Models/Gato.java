@@ -11,5 +11,7 @@ public class Gato extends Mascotas {
         this.color = color;
         this.peloLargo = peloLargo;
     }
-    @Override public boolean habla() { return false; }
+    @Override
+    public boolean habla() {
+        return false; }
 }

@@ -39,8 +39,9 @@ public class Canario extends Aves{
         System.out.println();
     }
 
-    public void habla(){
+    public boolean habla(){
         System.out.println();
+        return false;
     }
 
     public void volar(){

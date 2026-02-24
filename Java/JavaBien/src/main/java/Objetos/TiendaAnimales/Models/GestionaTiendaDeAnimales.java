@@ -9,7 +9,6 @@ public class GestionaTiendaDeAnimales {
         this.contador = 0;
     }
 
-    // Insertar mascota con gestión de capacidad
     public void insertarMascota(Mascotas m) {
         if (contador == mascotas.length) {
             ampliarCapacidad();
@@ -24,14 +23,12 @@ public class GestionaTiendaDeAnimales {
         mascotas = nuevoArray;
     }
 
-    // Mostrar todos los datos
     public void mostrarTodos() {
         for (int i = 0; i < contador; i++) {
             System.out.println(mascotas[i].toString());
         }
     }
 
-    // Sobrecarga 1: Eliminar por objeto
     public void eliminarAnimal(Mascotas m) {
         for (int i = 0; i < contador; i++) {
             if (mascotas[i].equals(m)) {
@@ -41,7 +38,6 @@ public class GestionaTiendaDeAnimales {
         }
     }
 
-    // Sobrecarga 2: Eliminar por nombre, raza y peso
     public void eliminarAnimal(String nombre, String raza, double peso) {
         for (int i = 0; i < contador; i++) {
             Mascotas m = mascotas[i];
@@ -63,7 +59,6 @@ public class GestionaTiendaDeAnimales {
         contador--;
     }
 
-    // Animal con más peso GLOBAL
     public Mascotas obtenerMasPesadoGlobal() {
         if (contador == 0) return null;
         Mascotas max = mascotas[0];
@@ -75,7 +70,6 @@ public class GestionaTiendaDeAnimales {
         return max;
     }
 
-    // Animal con más peso POR ESPECIE
     public Mascotas obtenerMasPesadoPorEspecie(Class<?> tipo) {
         Mascotas max = null;
         for (int i = 0; i < contador; i++) {

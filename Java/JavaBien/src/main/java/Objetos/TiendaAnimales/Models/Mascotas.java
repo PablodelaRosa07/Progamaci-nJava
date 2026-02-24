@@ -1,6 +1,7 @@
 package Objetos.TiendaAnimales.Models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Mascotas {
     private String nombre;
@@ -19,7 +20,6 @@ public abstract class Mascotas {
 
     public abstract boolean habla();
 
-    // Getters necesarios para la lógica del controlador
     public String getNombre() { return nombre; }
     public double getPeso() { return peso; }
     public int getEdad() { return edad; }

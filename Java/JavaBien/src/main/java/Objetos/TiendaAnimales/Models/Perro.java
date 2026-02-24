@@ -12,6 +12,13 @@ public class Perro extends Mascotas {
         this.pulgas = pulgas;
     }
     public String getRaza() { return raza; }
-    @Override public boolean habla() { return false; }
-    @Override public String toString() { return super.toString() + ", Raza: " + raza + ", Pulgas: " + pulgas; }
+    @Override
+    public boolean habla() {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Raza: " + raza + ", Pulgas: " + pulgas;
+    }
 }
