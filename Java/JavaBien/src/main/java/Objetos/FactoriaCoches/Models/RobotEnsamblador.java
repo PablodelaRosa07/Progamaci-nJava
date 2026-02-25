@@ -6,7 +6,9 @@ public class RobotEnsamblador extends Robot {
     }
 
     @Override
-    public String ejecutarTarea() { return "Ensamblando."; }
+    public String ejecutarTarea() {
+        return "Ensamblando.";
+    }
 
     @Override
     public boolean recargar() {

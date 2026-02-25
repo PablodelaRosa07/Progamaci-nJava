@@ -1,7 +1,7 @@
 package Objetos.FactoriaCoches.Models;
 
 public abstract class Robot {
-    private int contadorId = 1;
+    private static int contadorId = 1;
     private int id;
     private String modelo;
     private int bateria;

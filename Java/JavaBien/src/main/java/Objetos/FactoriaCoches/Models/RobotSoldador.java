@@ -24,7 +24,11 @@ public class RobotSoldador extends Robot implements DispositivoWIFI {
     }
 
     @Override
-    public void conectarWIFI() { System.out.println("Soldador conectado."); }
+    public void conectarWIFI() {
+        System.out.println("Soldador conectado.");
+    }
     @Override
-    public void desconectarWIFI() { System.out.println("Soldador fuera de línea."); }
+    public void desconectarWIFI() {
+        System.out.println("Soldador fuera de línea.");
+    }
 }
