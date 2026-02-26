@@ -1,5 +1,7 @@
 package Objetos.CuentaBancaria;
 
+import Objetos.Refactoriza.Models.Cliente;
+
 import java.util.Objects;
 
 public class Persona {
@@ -56,13 +58,14 @@ public class Persona {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Persona persona = (Persona) o;
-        return Objects.equals(dni, persona.dni);
+        return false;
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(dni);
+    }
+
+    public void añadirRol(Cliente cliente) {
     }
 }
