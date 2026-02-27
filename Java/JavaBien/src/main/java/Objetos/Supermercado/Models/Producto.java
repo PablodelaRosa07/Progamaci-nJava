@@ -1,16 +1,19 @@
 package Objetos.Supermercado.Models;
 
+import Objetos.FactoriaCoches.Models.Estado;
+
 public class Producto {
 
     private String identificador;
     private String nombre;
     private String descripcion;
-    private String peso;
+    private int peso;
     private double precioVenta;
     private double precioCompra;
     private double IVAaplicable;
+    private Estado estado;
 
-    public Producto(String descripcion, String identificador, double IVAaplicable, String nombre, String peso, double precioCompra, double precioVenta) {
+    public Producto(String descripcion, String identificador, double IVAaplicable, String nombre, int peso, double precioCompra, double precioVenta) {
         this.descripcion = descripcion;
         this.identificador = identificador;
         this.IVAaplicable = IVAaplicable;
@@ -53,11 +56,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getPeso() {
+    public int getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 
@@ -88,6 +91,15 @@ public class Producto {
                 ", precioCompra=" + precioCompra +
                 ", IVAaplicable=" + IVAaplicable +
                 '}';
+    }
+
+    public double calcularIVA(){
+        return 0;
+    }
+    public void calcularCalorias(){}
+
+    public Estado getEstado() {
+        return estado;
     }
 
 }
