@@ -1,6 +1,6 @@
 package Objetos.Empresa.Models;
 
-public class JefeDepartamento extends Empleado{
+public class JefeDepartamento extends Empleado implements ActualizableSueldo{
 
     private int antigüedadEmpresa;
 
@@ -18,4 +18,9 @@ public class JefeDepartamento extends Empleado{
     }
 
 
+    @Override
+    public void actualizarSueldo(double porcentaje) {
+        porcentaje = 10;
+        this.setSueldo((int) (this.getSueldo()*(1+(porcentaje/100))));
+    }
 }

@@ -9,6 +9,8 @@ public class EmpleadoBase extends Empleado implements ActualizableSueldo{
         this.puesto = puesto;
     }
 
+
+
     public Puesto getPuesto() {
         return puesto;
     }
@@ -31,10 +33,8 @@ public class EmpleadoBase extends Empleado implements ActualizableSueldo{
         }
     }
 
-
-
     @Override
     public void actualizarSueldo(double porcentaje) {
-
+        this.setSueldo((int) (this.getSueldo()*1.025));
     }
 }

@@ -1,6 +1,8 @@
 package Objetos.Empresa.Models;
 
-public abstract class Empleado {
+import java.util.Objects;
+
+public abstract class Empleado{
 
     private String DNI;
     private String nombre;
@@ -34,6 +36,18 @@ public abstract class Empleado {
 
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado empleado = (Empleado) o;
+        return sueldo == empleado.sueldo && Objects.equals(DNI, empleado.DNI) && Objects.equals(nombre, empleado.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(DNI, nombre, sueldo);
     }
 
 
